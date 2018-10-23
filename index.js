@@ -113,12 +113,6 @@ if(message.channel.type === "dm") {
     client.channels.get("498120231856766976").send(embed)
     client.users.get(message.author.id).send('Votre message a été envoyé au staff du bot, il vous répondra sous peu.')
   }
-  if(message.channel.type === "text") {
-	if(message.author.bot) return
-   
-   
-    client.channels.get("500699992751734785").send(message.author.username + " a envoyé : "+ message.content + " depuis le serveur " + message.guild.name + ". Utilisateur ID : " + message.author.id)
-  }
 
 	if(message.channel.type === "dm") return
 	let automod = require("./database/automod.json");
