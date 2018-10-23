@@ -1,0 +1,56 @@
+﻿{
+    "fr": {
+        "permissions": {
+            "botperm": "Je n'ai pas la permission requise",
+            "membre": "Tu n'as pas la permission requise afin d'effectuer cette action.",
+             "créateur": "Seul le créateur du bot peut effectuer cette commande",
+            "banni": "Tu es banni du bot et ne peux donc pas l'utiliser",
+            "erreur": "Une erreur est survenue, si cela se reproduit, contactez Guysmow#5384.",
+            "permuser": "L'utilisateur mentionné a des permissions trop hautes pour être banni.",
+            "nsfw": "Commande éxécutable uniquement dans un channel **NSFW** :underage:"
+                       },
+        "clear": {
+            "nombre": "Vous devez insérez un chiffre entre 1 et 100",
+            "raison": "Je ne peux pas supprimer des messages de plus de 14 jours"
+        },
+        "mention": {
+            "une": "Vous devez mentionner un utilisateur",
+            "deux": "Vous devez mentionner deux utilisateurs",
+            "inconnu": "Je ne trouve pas cet utilisateur"
+        },
+        "raisons": {
+            "invalide": "Tu dois indiquer une raison.",
+            "chiffre": "Tu dois indiquer un chiffre.",
+            "role": "Il possède déjà ce rôle",
+            "pasrole": "Il ne possède pas ce rôle",
+            "rolew": "Je ne trouve pas ce rôle"
+        }
+    }, 
+    "en": {
+            "permissions": {
+                "botperm": "I don't have the permission to do that.",
+                "membre": "You don't have the permission to do that.",
+                "créateur": "Only the owner of the bot can use this command.",
+                "banni": "You are banned of the bot, so you can't use it.",
+                "erreur": "An error occured, if it's arrive again, please contact Guysmow#5384.",
+                "permuser": "The user have higher permissions than me",
+                "nsfw": "This command is allowed only in an NSFW channel :underage:"
+                           },
+            "clear": {
+                "nombre": "You have to put a number beetween 1 and 100",
+                "raison": "I can't delete messages odler than 2 week."
+                        },
+            "mention": {
+                "une": "You have to ping an user",
+                "deux": "You have to ping two user",
+                "inconnu": "I can't find this user."
+            },
+            "raisons": {
+                "invalide": "You have to put a reason.",
+                "chiffre": "You have to put a number",
+                "role": "He already has this role",
+                "pasrole": "He do not have this role",
+                "rolew": "I don't find this role"
+            }
+        } 
+}

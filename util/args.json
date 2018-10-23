@@ -1,0 +1,12 @@
+{
+    "fr":{
+            "requis": "Un argument est requis",
+            "psobl": "Un argument n'est pas obligatoire",
+            "no": "Aucun argument n'est requis"
+    },
+    "en": {
+            "requis": "An argument is required",
+            "psobl": "An argument is not necessary",
+            "no": "An argument is not required"
+    }
+}
