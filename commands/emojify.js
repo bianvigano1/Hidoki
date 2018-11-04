@@ -55,7 +55,7 @@ const mapping = {
   
   let langue = require("../database/langue.json");
   module.exports.run = async (client, message, args1) => {
-      let prefix = prefixes[message.guild.id].prefixes;
+      
   
   let clangue = langue[message.author.id].langue
       let args = message.content.split(" ").slice(1);
@@ -68,14 +68,14 @@ const mapping = {
     .setAuthor('Aide du Emojify')
     .setDescription(arg.fr.requis)
     .addField('Commande :', `${online} - Disponible`)
-    .addField('Utilisation :', `${prefix}emojify <texte>`)
+    .addField('Utilisation :', `emojify <texte>`)
     .addField('Utilité :', "Rend ton texte en Emoji")
     .setFooter('Commande Emojify')
     let enembed = new Discord.RichEmbed()
      .setAuthor('Emojify help')
      .setDescription(arg.en.requis)
      .addField('Command :', `${online} - Available`)
-     .addField('How to use it :', `${prefix}emojify <text>`)
+     .addField('How to use it :', `emojify <text>`)
      .addField('His utility :', "Emojify your text")
      .setFooter('Command Emojify')
      if(clangue === "fr") return message.channel.send(frembed)

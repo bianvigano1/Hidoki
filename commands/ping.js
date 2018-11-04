@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Ping')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}ping`)
+  .addField('Utilisation :', `ping`)
   .addField('Utilité :', "Voir la vitesse de connexion")
   .setFooter('Commande Ping')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Ping help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}ping`)
+   .addField('How to use it :', `ping`)
    .addField('His utility :', "See the latency")
    .setFooter('Command Ping')
    if(clangue === "fr") return message.channel.send(frembed)

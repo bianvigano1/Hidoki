@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Invite')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}invite`)
+  .addField('Utilisation :', `invite`)
   .addField('Utilité :', "Avoir les liens d'invitations")
   .setFooter('Commande Invite')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Invite help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}invite`)
+   .addField('How to use it :', `invite`)
    .addField('His utility :', "Invite the bot")
    .setFooter('Command Invite')
    if(clangue === "fr") return message.channel.send(frembed)

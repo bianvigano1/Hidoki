@@ -20,7 +20,7 @@ module.exports.run = (client, message, args1) => {
                 };
             
     }
-    let prefix = prefixes[message.guild.id].prefixes;
+
 
 let cmod = automod[message.guild.id].automod
  let clangue = langue[message.author.id].langue
@@ -34,14 +34,14 @@ let cmod = automod[message.guild.id].automod
   .setAuthor('Aide du Automod')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}automod <on/off>`)
+  .addField('Utilisation :', `automod <on/off>`)
   .addField('Utilité :', "Vous protège vous et votre serveur")
   .setFooter('Commande Automod')
   let enembed = new Discord.RichEmbed()
     .setAuthor('Automod help')
     .setDescription(arg.en.requis)
     .addField('Command :', `${online} - Available`)
-    .addField('How to use it :', `${prefix}automod <on/off>`)
+    .addField('How to use it :', `automod <on/off>`)
     .addField('His utility :', "Protect your guild")
     .setFooter('Command Automod')
     if(clangue === "fr") return message.channel.send(frembed)

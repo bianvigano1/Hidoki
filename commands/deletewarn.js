@@ -5,7 +5,8 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+  let prefix = prefixes[message.guild.id].prefixes;
+
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -18,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Deletewarns')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}deletewarn <utilisateur> <numero du warn/tout>`)
+  .addField('Utilisation :', `deletewarn <utilisateur> <numero du warn/tout>`)
   .addField('Utilité :', "Supprime des warns")
   .setFooter('Commande Deletewarns')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Deletewarns help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}deletewarns <user> <Warn number/all>`)
+   .addField('How to use it :', `deletewarns <user> <Warn number/all>`)
    .addField('His utility :', "Delete warns of an user")
    .setFooter('Command Cookie')
    if(clangue === "fr") return message.channel.send(frembed)
@@ -112,7 +113,7 @@ if(clangue === "fr"){
                 let logs = message.guild.channels.find("id", log);
                 if(!logs) return message.channel.send(`Le warn de **${mentioned.tag}**\': **${args[1]}** a été enlevé avec succès!`)
                 message.mentions.users.first().send(`Votre warn n°${args[1]} a bien été supprimé sur le serveur ${message.guild.name}`)
-
+message.chhanel.send('Warn supprimé avec succès')
                 logs.send(warnembed);
                 message.delete();
                 

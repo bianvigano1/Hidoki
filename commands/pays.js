@@ -7,7 +7,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,15 +20,15 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Pays')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}pays <pays>`)
+  .addField('Utilisation :', `pays <pays>`)
   .addField('Utilité :', "Voir les informations d'un pays")
   .setFooter('Commande Pays')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Pays help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}pays <country>`)
-   .addField('His utility :', "Sax the informations on a Country")
+   .addField('How to use it :', `pays <country>`)
+   .addField('His utility :', "Saw the informations on a Country")
    .setFooter('Command Pays')
    if(clangue === "fr") return message.channel.send(frembed)
    if(clangue === "en") return message.channel.send(enembed)

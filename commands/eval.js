@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Eval')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}eval <texte>`)
+  .addField('Utilisation :', `eval <texte>`)
   .addField('Utilité :', "Evaluer un code")
   .setFooter('Commande Eval')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Eval help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}eval <texte>`)
+   .addField('How to use it :', `eval <texte>`)
    .addField('His utility :', "Eval a code")
    .setFooter('Command Eval')
    if(clangue === "fr") return message.channel.send(frembed)
@@ -53,7 +53,7 @@ let clangue = langue[message.author.id].langue
     } catch (err) {
         message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
-};
+}
 
 exports.conf = {
     aliases: ['exec']

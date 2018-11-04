@@ -7,7 +7,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +20,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Daily')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}daily`)
+  .addField('Utilisation :', `daily`)
   .addField('Utilité :', "Recupérer son argent journalier")
   .setFooter('Commande Daily')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Daily help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}daily `)
+   .addField('How to use it :', `daily `)
    .addField('His utility :', "Earn your daily coins")
    .setFooter('Command Daily')
    if(clangue === "fr") return message.channel.send(frembed)

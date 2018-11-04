@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Destroy')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}destroy`)
+  .addField('Utilisation :', `destroy`)
   .addField('Utilité :', "Eteint le bot")
   .setFooter('Commande Destroy')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Destroy help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}destroy}`)
+   .addField('How to use it :', `destroy`)
    .addField('His utility :', "Destroy the bot")
    .setFooter('Command Destroy')
    if(clangue === "fr") return message.channel.send(frembed)

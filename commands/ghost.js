@@ -13,13 +13,17 @@ module.exports.run = async (client, message, args1) => {
   let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
   let ava = user.displayAvatarURL
 
+  const arcadiaapi = require('arcadia-module');
+ 
+  arcadiaapi.filters("ghost", ava).then(url => {
+  
   message.channel.send({
       files: [{
-        attachment: `https://www.arcadia-api.xyz/api/v1/ghost?url=${ava}`,
+        attachment: url,
         name: 'ghost.png'
       }]
     })
-  
+  })
       cooldown[message.author.id] = {
         time: 1
         };
@@ -43,11 +47,10 @@ fs.writeFile("./database/cooldown.json", JSON.stringify(cooldown), (err) => {
 
 })}, 20000)
 }
-
 exports.conf = {
     aliases: []
     };
     
     exports.help = {
-     name: 'ghost', description: 'Manipule l\'image.', usage: `ghost [user]`
+     name: 'ghost', description: 'Manipule une image.', usage: `ghost [user]`
      };

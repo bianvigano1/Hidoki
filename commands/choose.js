@@ -5,7 +5,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -18,14 +18,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Choose')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}choose <mot1> <mot2>`)
+  .addField('Utilisation :', `choose <mot1> <mot2>`)
   .addField('Utilité :', "Fait un choix entre deux mots")
   .setFooter('Commande Choose')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Choose help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}choose <word1> <word2>`)
+   .addField('How to use it :', `choose <word1> <word2>`)
    .addField('His utility :', "Play versus the IA")
    .setFooter('Command Choose')
    if(clangue === "fr") return message.channel.send(frembed)

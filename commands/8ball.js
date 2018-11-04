@@ -13,8 +13,7 @@ let clangue = langue[message.author.id].langue
 let args = message.content.split(" ").slice(1);
 
 if(args[0] === "help"){
-  let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
-let prefix = prefixes[message.guild.id].prefixes;
+
   const online = client.emojis.get("482485733886656512");
 const idle = client.emojis.get("482485733316362241");
 const dnd = client.emojis.get("482485733488197642");
@@ -23,14 +22,14 @@ let frembed = new Discord.RichEmbed()
 .setAuthor('Aide du 8ball')
 .setDescription(arg.fr.requis)
 .addField('Commande :', `${online} - Disponible`)
-.addField('Utilisation :', `${prefix}8ball <question>`)
+.addField('Utilisation :', `8ball <question>`)
 .addField('Utilité :', "Répond aléatoirement à ue question")
 .setFooter('Commande 8ball')
 let enembed = new Discord.RichEmbed()
   .setAuthor('8ball help')
   .setDescription(arg.en.requis)
   .addField('Command :', `${online} - Available`)
-  .addField('How to use it :', `${prefix}8ball <issue>`)
+  .addField('How to use it :', `8ball <issue>`)
   .addField('His utility :', "Respond to a question")
   .setFooter('Command 8ball')
   if(clangue === "fr") return message.channel.send(frembed)

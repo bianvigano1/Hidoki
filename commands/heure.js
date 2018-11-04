@@ -7,7 +7,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +20,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Heure')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}heure`)
+  .addField('Utilisation :', `heure`)
   .addField('Utilité :', "Voir l'heure")
   .setFooter('Commande Heure')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Heure help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}heure`)
+   .addField('How to use it :', `heure`)
    .addField('His utility :', "Show the hour")
    .setFooter('Command Heure')
    if(clangue === "fr") return message.channel.send(frembed)

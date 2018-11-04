@@ -8,7 +8,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -21,14 +21,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Cookie')
   .setDescription(arg.fr.psobl)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}cookie [utilisateur]`)
+  .addField('Utilisation :', `cookie [utilisateur]`)
   .addField('Utilité :', "Donne un cookie à un autre utilisateur")
   .setFooter('Commande Cookie')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Cookie help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}cookie [user]`)
+   .addField('How to use it :', `cookie [user]`)
    .addField('His utility :', "Give a cookie ton an user")
    .setFooter('Command Cookie')
    if(clangue === "fr") return message.channel.send(frembed)

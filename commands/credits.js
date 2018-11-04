@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Credits')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}credits`)
+  .addField('Utilisation :', `credits`)
   .addField('Utilité :', "Voir les credits")
   .setFooter('Commande Credits')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Credits help')
    .setDescription(arg.en.no)
    .addField('Command :', `${dnd} - Unavailable`)
-   .addField('How to use it :', `${prefix}credits}`)
+   .addField('How to use it :', `credits}`)
    .addField('His utility :', "Show the credits")
    .setFooter('Command Credits')
    if(clangue === "fr") return message.channel.send(frembed)

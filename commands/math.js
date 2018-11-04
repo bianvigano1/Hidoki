@@ -7,7 +7,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +20,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Math')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}math <equation>`)
+  .addField('Utilisation :', `math <equation>`)
   .addField('Utilité :', "Permet de résoudre une équation")
   .setFooter('Commande Math')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Math help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}math <equation>`)
+   .addField('How to use it :', `math <equation>`)
    .addField('His utility :', "Solve an equation")
    .setFooter('Command Math')
    if(clangue === "fr") return message.channel.send(frembed)

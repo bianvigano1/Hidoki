@@ -9,7 +9,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -22,14 +22,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Npm')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}npm <package>`)
+  .addField('Utilisation :', `npm <package>`)
   .addField('Utilité :', "Recherche un package sur NPM")
   .setFooter('Commande Npm')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Npm help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}npm <package>`)
+   .addField('How to use it :', `npm <package>`)
    .addField('His utility :', "Search a package on NPM")
    .setFooter('Command Npm')
    if(clangue === "fr") return message.channel.send(frembed)

@@ -8,7 +8,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -21,14 +21,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Friendcheck')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}friendcheck <membre 1> <membre 2>`)
+  .addField('Utilisation :', `friendcheck <membre 1> <membre 2>`)
   .addField('Utilité :', "Test d'amitié")
   .setFooter('Commande FriendCheck')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Friendcheck help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}friendcheck <user1> <user2>`)
+   .addField('How to use it :', `friendcheck <user1> <user2>`)
    .addField('His utility :', "Friendcheck rate.")
    .setFooter('Command Friendcheck')
    if(clangue === "fr") return message.channel.send(frembed)
@@ -44,7 +44,7 @@ let clangue = langue[message.author.id].langue
     if(clangue === "fr"){
 
 if(message.mentions.users.size === 2){
-     if(member2.id === "381116968327053313" && member1.id === "477088974045708288") return message.channel.send('Entre mon développeur et, l\'amitié n\'a pas de frontière et est **infini**')
+     if(member2.id === "381116968327053313" && member1.id === "469054026001022986") return message.channel.send('Entre mon développeur et, l\'amitié n\'a pas de frontière et est **infini**')
   message.channel.send(`Il y'a ${number}% d'amitié :raised_hands:, entre ${member1.user.username} et ${member2.user.username}`)
         
     }else{message.channel.send(errors.fr.mention.deux)}

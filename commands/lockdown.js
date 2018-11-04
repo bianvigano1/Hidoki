@@ -7,7 +7,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +20,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Lockdown')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}lockdown <temps/unlock>`)
+  .addField('Utilisation :', `lockdown <temps/unlock>`)
   .addField('Utilité :', "Locke un channel")
   .setFooter('Commande Lockdown')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Lockdown help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}lockdown <time/unlock>`)
+   .addField('How to use it :', `lockdown <time/unlock>`)
    .addField('His utility :', "Show the bot info")
    .setFooter('Command Lockdown')
    if(clangue === "fr") return message.channel.send(frembed)

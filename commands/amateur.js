@@ -16,7 +16,7 @@ const arg = require('../util/args.json')
 
 exports.run = (client, message, args1) => {
     let clangue = langue[message.author.id].langue
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
     let args = message.content.split(" ").slice(1);
     
@@ -29,14 +29,14 @@ exports.run = (client, message, args1) => {
     .setAuthor('Aide du Amateur')
     .setDescription(arg.fr.no)
     .addField('Commande :', `${online} - Disponible`)
-    .addField('Utilisation :', `${prefix}amateur`)
+    .addField('Utilisation :', `amateur`)
     .addField('Utilité :', "Vous montre une belle image NSFW :smirk:")
     .setFooter('Commande Amateur')
     let enembed = new Discord.RichEmbed()
       .setAuthor('8ball help')
       .setDescription(arg.fr.no)
       .addField('Command :', `${online} - Available`)
-      .addField('How to use it :', `${prefix}8ball [issue]`)
+      .addField('How to use it :', `8ball [issue]`)
       .addField('His utility :', "Show you a beautiful image NSFW")
       .setFooter('Command Amator')
       if(clangue === "fr") return message.channel.send(frembed)

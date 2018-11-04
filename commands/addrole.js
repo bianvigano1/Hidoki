@@ -9,7 +9,7 @@ const errors = require('../util/errors.json')
 
 let langue = require('../database/langue.json')
 
-let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
+
 
 let logc = require('../database/log.json')
 
@@ -20,7 +20,6 @@ const arg = require('../util/args.json')
 module.exports.run = async (client, message, args1) => {
   let clangue = langue[message.author.id].langue
 
-  let prefix = prefixes[message.guild.id].prefixes;
   let log = logc[message.guild.id].log
 
     let args = message.content.split(" ").slice(1);
@@ -34,14 +33,14 @@ module.exports.run = async (client, message, args1) => {
     .setAuthor('Aide du AddRole')
     .setDescription(arg.fr.requis)
     .addField('Commande :', `${online} - Disponible`)
-    .addField('Utilisation :', `${prefix}addrole [Membre] [Nom de rôle]`)
+    .addField('Utilisation :', `addrole [Membre] [Nom de rôle]`)
     .addField('Utilité :', "Ajoute un rôle à un utilisateur")
     .setFooter('Commande AddRole')
     let enembed = new Discord.RichEmbed()
       .setAuthor(arg.en.requis)
       .setDescription('Args required')
       .addField('Command :', `${online} - Available`)
-      .addField('How to use it :', `${prefix}addrole [User] [Role name]`)
+      .addField('How to use it :', `addrole [User] [Role name]`)
       .addField('His utility :', "Add a role to an user")
       .setFooter('Command AddRole')
       if(clangue === "fr") return message.channel.send(frembed)

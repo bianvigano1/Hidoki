@@ -21,14 +21,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Base32')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}base32 <decode/encode> <texte>`)
+  .addField('Utilisation :', `base32 <decode/encode> <texte>`)
   .addField('Utilité :', "Encode ou décode votre texte de la base32")
   .setFooter('Commande Base32')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Base32 help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}base32 <decode/encode> <text> `)
+   .addField('How to use it :', `base32 <decode/encode> <text> `)
    .addField('His utility :', "Encode or decode your texte of base32")
    .setFooter('Command Base32')
    if(clangue === "fr") return message.channel.send(frembed)
@@ -40,11 +40,11 @@ if(args[0] === "encode"){
     const b32Encoded = base32.encode(texte);
     message.channel.send(`\`\`\`\n${b32Encoded}\`\`\``);
 }
-if(args[0] === "decode"){
+else if(args[0] === "decode"){
     let texte = args.slice(1).join(" ");
     const b32Encoded = base32.decode(texte);
     message.channel.send(`\`\`\`\n${b32Encoded}\`\`\``);
-}
+}else{message.channel.send('Encode ou D�code')}
    
 }
 

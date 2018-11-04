@@ -9,7 +9,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -22,14 +22,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Hentai')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}hentai`)
+  .addField('Utilisation :', `hentai`)
   .addField('Utilité :', "Commande NSFW :smirk:")
   .setFooter('Commande Hentai')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Hentai help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}hentai`)
+   .addField('How to use it :', `hentai`)
    .addField('His utility :', "Show you a NSFW picture :smirk:")
    .setFooter('Command Hentai')
    if(clangue === "fr") return message.channel.send(frembed)

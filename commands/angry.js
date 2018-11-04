@@ -21,7 +21,7 @@ exports.run = (client, message, args1) => {
        let args = message.content.split(" ").slice(1);
        if(args[0] === "help"){
         let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
-      let prefix = prefixes[message.guild.id].prefixes;
+     
         const online = client.emojis.get("482485733886656512");
       const idle = client.emojis.get("482485733316362241");
       const dnd = client.emojis.get("482485733488197642");
@@ -30,14 +30,14 @@ exports.run = (client, message, args1) => {
       .setAuthor('Aide du Angry')
       .setDescription(arg.fr.psobl)
       .addField('Commande :', `${online} - Disponible`)
-      .addField('Utilisation :', `${prefix}angry [mention]`)
+      .addField('Utilisation :', `angry [mention]`)
       .addField('Utilité :', "Pour s'énerver sur quelqu'un")
       .setFooter('Commande Angry')
       let enembed = new Discord.RichEmbed()
         .setAuthor('Angry help')
         .setDescription(arg.en.psobl)
         .addField('Command :', `${online} - Available`)
-        .addField('How to use it :', `${prefix}8ball [mention]`)
+        .addField('How to use it :', `8ball [mention]`)
         .addField('His utility :', "Répond à une question.")
         .setFooter('Command Angry')
         if(clangue === "fr") return message.channel.send(frembed)

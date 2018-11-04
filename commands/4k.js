@@ -21,8 +21,7 @@ exports.run = (client, message, args1) => {
     let clangue = langue[message.author.id].langue
 
 if(args[0] === "help"){
-    let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
-let prefix = prefixes[message.guild.id].prefixes;
+
     const online = client.emojis.get("482485733886656512");
  const idle = client.emojis.get("482485733316362241");
  const dnd = client.emojis.get("482485733488197642");
@@ -30,14 +29,14 @@ let prefix = prefixes[message.guild.id].prefixes;
  .setAuthor('Aide du 4k')
  .setDescription(arg.fr.no)
  .addField('Commande :', `${online} - Disponible`)
- .addField('Utilisation :', `${prefix}4k`)
+ .addField('Utilisation :', `4k`)
  .addField('Utilité :', "Commande NSFW qui montre une joli image :smirk:")
  .setFooter('Commande 4k')
  let enembed = new Discord.RichEmbed()
     .setAuthor('4k help')
     .setDescription(arg.en.no)
     .addField('Command :', `${online} - Available`)
-    .addField('How to use it :', `${prefix}4k`)
+    .addField('How to use it :', `4k`)
     .addField('His utility :', "NSFW command :smirk:")
     .setFooter('Command 4k')
     if(clangue === "fr") return message.channel.send(frembed)

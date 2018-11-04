@@ -13,13 +13,17 @@ module.exports.run = async (client, message, args1) => {
   let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
   let ava = user.displayAvatarURL
 
+  const arcadiaapi = require('arcadia-module');
+ 
+  arcadiaapi.filters("convinvert", ava).then(url => {
+  
   message.channel.send({
       files: [{
-        attachment: `https://www.arcadia-api.xyz/api/v1/convinvert?url=${ava}`,
+        attachment: url,
         name: 'convinvert.png'
       }]
     })
-  
+  })
       cooldown[message.author.id] = {
         time: 1
         };
@@ -48,5 +52,5 @@ exports.conf = {
     };
     
     exports.help = {
-     name: 'convinvert', description: 'Manipule l\'image.', usage: `convinvert [user]`
+     name: 'convinvert', description: 'Manipule une image.', usage: `convinvert [user]`
      };

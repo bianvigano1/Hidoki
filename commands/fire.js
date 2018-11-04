@@ -13,13 +13,17 @@ module.exports.run = async (client, message, args1) => {
   let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
   let ava = user.displayAvatarURL
 
+  const arcadiaapi = require('arcadia-module');
+ 
+  arcadiaapi.filters("fire", ava).then(url => {
+  
   message.channel.send({
       files: [{
-        attachment: `https://www.arcadia-api.xyz/api/v1/fire?url=${ava}`,
+        attachment: url,
         name: 'fire.png'
       }]
     })
-  
+  })
       cooldown[message.author.id] = {
         time: 1
         };
@@ -48,5 +52,5 @@ exports.conf = {
     };
     
     exports.help = {
-     name: 'fire', description: 'Manipule l\'image.', usage: `fire [user]`
+     name: 'fire', description: 'Manipule une image.', usage: `fire [user]`
      };

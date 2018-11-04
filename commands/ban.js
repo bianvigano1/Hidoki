@@ -17,7 +17,7 @@ let langue = require("../database/langue.json");
 exports.run = async (client, message, args1) => { // if your cmd handler has different things than client, message etc change it
 
     let log = logc[message.guild.id].log
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
     let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -31,14 +31,14 @@ let frembed = new Discord.RichEmbed()
 .setAuthor('Aide du Ban')
 .setDescription(arg.fr.requis)
 .addField('Commande :', `${online} - Disponible`)
-.addField('Utilisation :', `${prefix}ban <utilisateur> [raison]`)
+.addField('Utilisation :', `ban <utilisateur> [raison]`)
 .addField('Utilité :', "Banni un utilisateur")
 .setFooter('Commande Ban')
 let enembed = new Discord.RichEmbed()
  .setAuthor('Ban help')
  .setDescription(arg.en.requis)
  .addField('Command :', `${online} - Available`)
- .addField('How to use it :', `${prefix}ban <user> [reason]`)
+ .addField('How to use it :', `ban <user> [reason]`)
  .addField('His utility :', "Ban an user")
  .setFooter('Command Ban')
  if(clangue === "fr") return message.channel.send(frembed)

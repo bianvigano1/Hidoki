@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,29 +19,28 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Logchannel')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}logchannel <ID du channel>`)
+  .addField('Utilisation :', `logchannel <ID du channel>`)
   .addField('Utilité :', "Configurer le salon des logs")
   .setFooter('Commande Logchannel')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Logchannel help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}logchannel <channel ID>`)
+   .addField('How to use it :', `logchannel <channel ID>`)
    .addField('His utility :', "Configurer le salon des logs")
    .setFooter('Command Logchannel')
    if(clangue === "fr") return message.channel.send(frembed)
    if(clangue === "en") return message.channel.send(enembed)
   }
     let logc = require('../database/log.json')
-
-    let log = logc[message.guild.id].log
+ 
 
     
 
 
     if(clangue === "fr"){
         var maxLen = 18
-      if(!message.member.hasPermission("MANAGE_SERVER")) return message.reply("Tu n'as pas les permissions");
+      if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply("Tu n'as pas les permissions");
     if(!args[0] || args[0 == null]) return message.reply(`Usage: ${prefix}logchannel <ID DU CHANNEL>`);
     if(isNaN(args[0])) return message.channel.send("Pour configurer les logs, vous devez insérer l'ID du channel ")
      if(args.join(' ').length !== maxLen) return message.channel.send('Un ID d\'un channel possède 18 chiffres ')

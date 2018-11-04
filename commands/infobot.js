@@ -1,4 +1,3 @@
-const moment = require("moment")
 const Discord = require('discord.js')
 const arg = require('../util/args.json')
 const fs = require('fs')
@@ -7,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Infobot')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}infobot`)
+  .addField('Utilisation :', `infobot`)
   .addField('Utilité :', "Voir les info du bot")
   .setFooter('Commande Infobot')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Infobot help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}infobot`)
+   .addField('How to use it :', `infobot`)
    .addField('His utility :', "Show the bot info")
    .setFooter('Command Infobot')
    if(clangue === "fr") return message.channel.send(frembed)
@@ -36,6 +35,10 @@ let clangue = langue[message.author.id].langue
    const os = require('os');
 const used = process.memoryUsage().heapUsed / 1024 / 1024;  
  
+const moment = require("moment")
+require("moment-duration-format")
+
+const duration = moment.duration(client.uptime).format(" D [jours], H [heures], m [minutes], s [second]");
 
  
 let pourcent = Math.random(used / 4096 * 100).toFixed(2)
@@ -46,9 +49,10 @@ var info_embed = new Discord.RichEmbed()
 .addField('Pourcentage de RAM utilisée : ', "`"+pourcent+"%`", true)
 .addField("Plateforme d'hébergement :", `\`Linux - Debian\``, true)
    .addField("Version de Node:", `${process.version}`, true)
-   .addField('Version de Discord', "V11.4.2",true)
+   .addField('Version de Discord.js', "V11.4.2",true)
    .addField('Configuration du Processeur : ', `\`\`\`css\nINTEL XEON E5-1620\`\`\``, true)
-
+.addField('Crédits : ', `[Arcadia-api](https://arcadia-api.xyz)`, true)
+.addField('Uptime : ', duration, true)
      
      if(clangue === "fr"){
        message.channel.send(info_embed)

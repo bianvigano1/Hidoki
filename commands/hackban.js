@@ -7,7 +7,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +20,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Hackban')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}hackban <id>`)
+  .addField('Utilisation :', `hackban <id>`)
   .addField('Utilité :', "Permet de bannir un utilisateur par son ID")
   .setFooter('Commande Hackban')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Hackban help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}hackban <id>`)
+   .addField('How to use it :', `hackban <id>`)
    .addField('His utility :', "Used to ban an user with his ID")
    .setFooter('Command Hackban')
    if(clangue === "fr") return message.channel.send(frembed)

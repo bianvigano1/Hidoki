@@ -7,7 +7,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +20,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Base64')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}base64 <decode/encode> <texte>`)
+  .addField('Utilisation :', `base64 <decode/encode> <texte>`)
   .addField('Utilité :', "Encode ou décode votre texte de la base64")
   .setFooter('Commande Base64')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Base64 help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}base64 <decode/encode> <text> `)
+   .addField('How to use it :', `base64 <decode/encode> <text> `)
    .addField('His utility :', "Encore or decode your text from base64")
    .setFooter('Command Base64')
    if(clangue === "fr") return message.channel.send(frembed)

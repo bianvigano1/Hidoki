@@ -11,7 +11,7 @@ let arg = require('../util/args.json')
 //<------------------DEBUT DU CODE--------------->
 
 exports.run = (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
  let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -24,14 +24,14 @@ exports.run = (client, message, args1) => {
   .setAuthor('Aide du Avatar')
   .setDescription(arg.fr.psobl)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}avatar [utilisateur]`)
+  .addField('Utilisation :', `avatar [utilisateur]`)
   .addField('Utilité :', "Voit l'avatar de quelqu'un")
   .setFooter('Commande Avatar')
   let enembed = new Discord.RichEmbed()
     .setAuthor('Avatar help')
     .setDescription(arg.en.psobl)
     .addField('Command :', `${online} - Available`)
-    .addField('How to use it :', `${prefix}avatar [user]`)
+    .addField('How to use it :', `avatar [user]`)
     .addField('His utility :', "Look the avatar of an user")
     .setFooter('Command Avatar')
     if(clangue === "fr") return message.channel.send(frembed)

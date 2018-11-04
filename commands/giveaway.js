@@ -8,7 +8,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -21,14 +21,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Giveaway')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}giveaway [temps] [chose à gagner]`)
+  .addField('Utilisation :', `giveaway [temps] [chose à gagner]`)
   .addField('Utilité :', "Voir si tu es Donateur")
   .setFooter('Commande Giveaway')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Giveaway help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}giveaway [time] [Prize]`)
+   .addField('How to use it :', `giveaway [time] [Prize]`)
    .addField('His utility :', "Are you a donator")
    .setFooter('Command Giveaway')
    if(clangue === "fr") return message.channel.send(frembed)

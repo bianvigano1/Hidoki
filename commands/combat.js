@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Combat')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}combat <utilisateur>`)
+  .addField('Utilisation :', `combat <utilisateur>`)
   .addField('Utilité :', "Combat un autre utilisateur")
   .setFooter('Commande Combat')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Combat help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${dnd} - Unavailable`)
-   .addField('How to use it :', `${prefix}combat <user>`)
+   .addField('How to use it :', `combat <user>`)
    .addField('His utility :', "Fight an user")
    .setFooter('Combat command')
    if(clangue === "fr") return message.channel.send(frembed)

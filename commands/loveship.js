@@ -9,7 +9,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+    
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -22,14 +22,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Loveship')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}loveship <membre1> <membre2>`)
+  .addField('Utilisation :', `loveship <membre1> <membre2>`)
   .addField('Utilité :', "Petit test d'amour assez sympatoche")
   .setFooter('Commande Loveship')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Loveship help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${dnd} - Unvailable`)
-   .addField('How to use it :', `${prefix}loveship <user1> <user2>`)
+   .addField('How to use it :', `loveship <user1> <user2>`)
    .addField('His utility :', "Loveship rate to see if you are a lover")
    .setFooter('Command Loveship')
    if(clangue === "fr") return message.channel.send(frembed)
