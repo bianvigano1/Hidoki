@@ -16,7 +16,7 @@ if(cdonnees === 0){
     let moka = client.emojis.get('498533640280473600')
     const emoji1 = "✅";
     const emoji = "❌";
-    message.channel.send('Voulez-vous démarrer votre aventure, votre but sera de rammaser le plus de Moka '+moka+'. Un Moka est une petite pplate, qui permet de faire tout ce que vous voulez.').then(msg => {
+    message.channel.send('Voulez-vous démarrer votre aventure, votre but sera de rammaser le plus de Moka '+moka+'. Un Moka est une petite créature, qui permet de faire tout ce que vous voulez.').then(msg => {
         msg.react(emoji).then(r => {
             msg.react(emoji1)
             const non = (reaction, user) => reaction.emoji.name === emoji && user.id === message.author.id;

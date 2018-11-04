@@ -6,7 +6,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,13 +18,13 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Topinvites')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}topinvites`)
+  .addField('Utilisation :', `topinvites`)
   .addField('Utilité :', "Voir le top des initations")
   .setFooter('Commande Topinvites')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Topinvites help')
    .setDescription(arg.en.no)
-   .addField('Command :', `${online} - Available`)
+   .addField('Command :', ` - Available`)
    .addField('How to use it :', `${prefix}topinvites`)
    .addField('His utility :', "Show the leaderboard of invites")
    .setFooter('Command Topinvites')
@@ -45,7 +44,7 @@ let clangue = langue[message.author.id].langue
     })
 
     const embed = new Discord.RichEmbed()
-        .setTitle(`**INVITELEADERBOARD**`)
+        .setTitle(`**INVITE,LEADERBOARD**`)
         .setColor(0xCB5A5E)
         .setDescription(`\`\`\`${possibleinvites.join('\n')}\`\`\``)
         .setTimestamp();
@@ -65,7 +64,7 @@ let clangue = langue[message.author.id].langue
     })
 
     const embed = new Discord.RichEmbed()
-        .setTitle(`**INVITELEADERBOARD**`)
+        .setTitle(`**INVITE LEADERBOARD**`)
         .setColor(0xCB5A5E)
         .addField('Invites', `\`\`\`${possibleinvites.join('\n')}\`\`\``)
         .setTimestamp();

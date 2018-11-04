@@ -6,7 +6,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,26 +18,26 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Reply')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}reply <id> <message>`)
+  .addField('Utilisation :', `reply <id> <message>`)
   .addField('Utilité :', "Contace un membre par le bot.")
   .setFooter('Commande Reply')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Reply help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}reply <id> <message>`)
+   .addField('How to use it :', `reply <id> <message>`)
    .addField('His utility :', "Talk to an user")
    .setFooter('Command Reply')
    if(clangue === "fr") return message.channel.send(frembed)
    if(clangue === "en") return message.channel.send(enembed)
   }
-   if(message.author.id !== config.owner) return message.channel.send('Tu veux MP qui toi ?')
+   if(message.author.id === config.owner || message.author.id === "318866596502306816") {
 let membre = args[0]
 let messagec = args.slice(1).join(" ");
 let rMembre = client.users.get(membre)
 let embed = new Discord.RichEmbed()
 .setAuthor('Message privé du bot')
-.setDescription('Auteur de ce message : ' + message.author)
+.setDescription('Auteur de ce message : ' + message.author + message.author.id)
 .addField('Contenu du message : ', messagec)
 .setFooter('Message privé du bot')
 try {
@@ -47,7 +46,9 @@ try {
   } catch (e) {
     message.channel.send(`<@${membre}> a bloqué ses MP `)
   }
-}
+}else{
+  return message.channel.send('Tu veux MP qui toi ?')
+} }
 
 exports.conf = {
     aliases: ['repondre']

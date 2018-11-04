@@ -6,7 +6,7 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
+
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Setlanguage')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}setlanguage <en/fr>`)
+  .addField('Utilisation :', `setlanguage <en/fr>`)
   .addField('Utilité :', "Changer la langue du bot")
   .setFooter('Commande Setlanguage')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Stelanguage help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}setlanguage <en/fr>`)
+   .addField('How to use it :', `setlanguage <en/fr>`)
    .addField('His utility :', "Change the bot language")
    .setFooter('Command Setlanguage')
    if(clangue === "fr") return message.channel.send(frembed)

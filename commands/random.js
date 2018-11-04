@@ -6,7 +6,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +18,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Random')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}random [nombre]`)
+  .addField('Utilisation :', `random [nombre]`)
   .addField('Utilité :', "Tire un nombre au hasard")
   .setFooter('Commande Random')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Random help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}random [number]`)
+   .addField('How to use it :', `random [number]`)
    .addField('His utility :', "Roll a number")
    .setFooter('Command Random')
    if(clangue === "fr") return message.channel.send(frembed)

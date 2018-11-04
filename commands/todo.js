@@ -6,7 +6,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +18,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Todo')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}todo <add/remove/see> [texte/tout]`)
+  .addField('Utilisation :', `todo <add/remove/see> [texte/tout]`)
   .addField('Utilité :', "Une liste de à faire")
   .setFooter('Commande Todo')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Todo help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}todo <ad/remove/see> [text/all]`)
+   .addField('How to use it :', `todo <ad/remove/see> [text/all]`)
    .addField('His utility :', "A todo list")
    .setFooter('Command Todo')
    if(clangue === "fr") return message.channel.send(frembed)

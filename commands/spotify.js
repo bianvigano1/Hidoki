@@ -15,12 +15,12 @@ module.exports.run = async (client, message, args1) => {
 
   const arcadiaapi = require('arcadia-module');
  
-  arcadiaapi.filters("twitter", ava, 0).then(url => {
+  arcadiaapi.filters("spotify", ava).then(url => {
   
   message.channel.send({
       files: [{
         attachment: url,
-        name: 'twitter.png'
+        name: 'spotify.png'
       }]
     })
   })
@@ -52,5 +52,5 @@ exports.conf = {
     };
     
     exports.help = {
-     name: 'twitter', description: 'Manipule une image.', usage: `twitter [user]`
+     name: 'spotify', description: 'Manipule une image.', usage: `spotify [user]`
      };

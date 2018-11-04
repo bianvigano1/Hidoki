@@ -8,7 +8,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -21,14 +20,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Slot')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}slot`)
+  .addField('Utilisation :', `slot`)
   .addField('Utilité :', "Lance la machine à sous")
   .setFooter('Commande Slot')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Slot help')
    .setDescription(arg.en.no)
    .addField('Command :', `${dnd} - Unavailable`)
-   .addField('How to use it :', `${prefix}slot`)
+   .addField('How to use it :', `slot`)
    .addField('His utility :', "Play a slot")
    .setFooter('Command Slot')
    if(clangue === "fr") return message.channel.send(frembed)
@@ -112,14 +111,7 @@ let clangue = langue[message.author.id].langue
 					 const fs = require("fs");
 				 fs.writeFile("./database/coins.json", JSON.stringify(coins), (err)=>console.log(err));
 
-		const verifl2 = [
-            { q: ":seven:|:seven:|:seven:", a: [10000]},
-          { q: ":dollar::dollar::dollar:", a: [number]},
-          {q: ":cherries:|:cherries:|:cherries:", a: [5]},
-          {q: "Vous faites du pet-sitting et gagnez "+number+" coins", a: [number]},
-          {q: "Vous faites des heures supplémentaires pour gagner "+number+"coins", a: [number]},
-        ]   
-        const item = verifl2[Math.floor(Math.random() * verifl2.length)];
+
 
 
   if(ligne2 === ":seven:|:seven:|:dollar:"){

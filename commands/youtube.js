@@ -6,7 +6,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +18,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Youtube')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}youtube <query>`)
+  .addField('Utilisation :', `youtube <query>`)
   .addField('Utilité :', "Fait une recherche sur Youtube")
   .setFooter('Commande Youtube')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Youtube help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}youtube <query>`)
+   .addField('How to use it :', `youtube <query>`)
    .addField('His utility :', "Search on Youtube")
    .setFooter('Command Youtube')
    if(clangue === "fr") return message.channel.send(frembed)

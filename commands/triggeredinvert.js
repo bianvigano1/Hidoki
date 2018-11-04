@@ -13,13 +13,17 @@ module.exports.run = async (client, message, args1) => {
   let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
   let ava = user.displayAvatarURL
 
+  const arcadiaapi = require('arcadia-module');
+ 
+  arcadiaapi.generation("triggeredinvert", ava, 0).then(url => {
+  
   message.channel.send({
       files: [{
-        attachment: `https://www.arcadia-api.xyz/api/v1/triggeredinvert?url=${ava}`,
+        attachment: url,
         name: 'triggeredinvert.gif'
       }]
     })
-  
+  })
       cooldown[message.author.id] = {
         time: 1
         };
@@ -48,5 +52,5 @@ exports.conf = {
     };
     
     exports.help = {
-     name: 'triggeredinvert', description: 'Manipule l\'image.', usage: `triggeredinvert [user]`
+     name: 'triggeredinvert', description: 'Manipule une image.', usage: `triggeredinvert [user]`
      };

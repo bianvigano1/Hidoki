@@ -7,7 +7,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Remindme')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}remindme <temps> <chose à rappeler>`)
+  .addField('Utilisation :', `remindme <temps> <chose à rappeler>`)
   .addField('Utilité :', "Vous rappelle une chose")
   .setFooter('Commande Remindme')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Remindme help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}remindme <time> <reminder>`)
+   .addField('How to use it :', `remindme <time> <reminder>`)
    .addField('His utility :', "To remind you to do something")
    .setFooter('Command Remindme')
    if(clangue === "fr") return message.channel.send(frembed)

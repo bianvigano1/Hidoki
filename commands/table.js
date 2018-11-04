@@ -6,7 +6,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +18,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Table')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}table <number>`)
+  .addField('Utilisation :', `table <number>`)
   .addField('Utilité :', "Tricheur..")
   .setFooter('Commande Table')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Table help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}table <number>`)
+   .addField('How to use it :', `table <number>`)
    .addField('His utility :', "Ohw cheater")
    .setFooter('Command Table')
    if(clangue === "fr") return message.channel.send(frembed)

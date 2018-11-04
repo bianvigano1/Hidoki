@@ -6,7 +6,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -19,14 +18,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Setprefix')
   .setDescription(arg.fr.requis)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}setprefix <prefix>`)
+  .addField('Utilisation :', `setprefix <prefix>`)
   .addField('Utilité :', "Changer le préfix du bot")
   .setFooter('Commande Setprefix')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Setprefix help')
    .setDescription(arg.en.requis)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}setprefix <prefix>`)
+   .addField('How to use it :', `setprefix <prefix>`)
    .addField('His utility :', "Change the prefix of the bot")
    .setFooter('Command Setprefix')
    if(clangue === "fr") return message.channel.send(frembed)
@@ -34,7 +33,7 @@ let clangue = langue[message.author.id].langue
   } 
     if(clangue === "fr"){
       if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply("Tu n'as pas les permissions");
-    if(!args[0] || args[0 == null]) return message.reply(`Usage: ${prefix}setprefix <new prefix>`);
+    if(!args[0] || args[0 == null]) return message.reply(`Usage: setprefix <new prefix>`);
   
     prefixes[message.guild.id] = {
       prefixes: args[0]
@@ -53,7 +52,7 @@ let clangue = langue[message.author.id].langue
 
     if(clangue === "en"){
       if(!message.member.hasPermission("MANAGE_SERVER")) return message.reply("You can't make that");
-    if(!args[0] || args[0 == null]) return message.reply(`Usage: ${prefix}setprefix <new prefix>`);
+    if(!args[0] || args[0 == null]) return message.reply(`Usage: setprefix <new prefix>`);
   
     prefixes[message.guild.id] = {
       prefixes: args[0]

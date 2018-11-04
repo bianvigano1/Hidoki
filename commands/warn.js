@@ -26,7 +26,7 @@ let clangue = langue[message.author.id].langue
    .setAuthor('Warn help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}warn <user> <reason>`)
+   .addField('How to use it :', `warn <user> <reason>`)
    .addField('His utility :', "Show a gif about Trump")
    .setFooter('Command Trump')
    if(clangue === "fr") return message.channel.send(frembed)

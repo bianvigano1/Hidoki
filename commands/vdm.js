@@ -8,7 +8,6 @@ exports.run = (client, message, args1) => {
 
   if(args[0] === "help"){
     let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
-let prefix = prefixes[message.guild.id].prefixes;
     const online = client.emojis.get("482485733886656512");
  const idle = client.emojis.get("482485733316362241");
  const dnd = client.emojis.get("482485733488197642");
@@ -16,7 +15,7 @@ let prefix = prefixes[message.guild.id].prefixes;
  .setAuthor('Aide du Vdm')
  .setDescription('Aucun argument nécéssaire')
  .addField('Commande :', `${online} - Disponible`)
- .addField('Utilisation :', `${prefix}vdm`)
+ .addField('Utilisation :', `vdm`)
  .addField('Utilité :', "Vous raconte une Vie de Merde")
  .setFooter('Commande VDM')
  let enembed = new Discord.RichEmbed()

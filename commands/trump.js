@@ -7,7 +7,6 @@ let prefixes = JSON.parse(fs.readFileSync("./database/prefix.json", "utf8"));
 
 let langue = require("../database/langue.json");
 module.exports.run = async (client, message, args1) => {
-    let prefix = prefixes[message.guild.id].prefixes;
 
 let clangue = langue[message.author.id].langue
     let args = message.content.split(" ").slice(1);
@@ -20,14 +19,14 @@ let clangue = langue[message.author.id].langue
   .setAuthor('Aide du Trump')
   .setDescription(arg.fr.no)
   .addField('Commande :', `${online} - Disponible`)
-  .addField('Utilisation :', `${prefix}trump`)
+  .addField('Utilisation :', `trump`)
   .addField('Utilité :', "Voir un gif de Trump")
   .setFooter('Commande Trump')
   let enembed = new Discord.RichEmbed()
    .setAuthor('Trump help')
    .setDescription(arg.en.no)
    .addField('Command :', `${online} - Available`)
-   .addField('How to use it :', `${prefix}trump`)
+   .addField('How to use it :', `trump`)
    .addField('His utility :', "Show a gif about Trump")
    .setFooter('Command Trump')
    if(clangue === "fr") return message.channel.send(frembed)
